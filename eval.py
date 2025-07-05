@@ -22,7 +22,6 @@ from transformers import (WEIGHTS_NAME, AdamW, get_linear_schedule_with_warmup,
 from embedding import ModelEmbedding, get_embedding_model
 import metric
 from prettytable import PrettyTable
-from attention import MultiHeadedAttention, gMultiHeadedAttention, SelfAttention
 from llm_gen import generate_rank, generate_exinfo
 
 logger = logging.getLogger(__name__)
