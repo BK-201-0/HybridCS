@@ -1,5 +1,4 @@
 # Hybrid-CS
-Replication package for 
 ### Project Structure
 ```bash
 -data # datasets and generated data
