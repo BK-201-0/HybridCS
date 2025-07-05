@@ -9,10 +9,8 @@ from openai import OpenAI
 
 def generate_exinfo(args, data):
     client = OpenAI(
-        # api_key="sk-37d36aa17bc84926948fc73b5881c1e5",
-        # base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
-        api_key="sk-SkhHyWPPyrX1djIXLTDYJvZcLwBGpXEpXhNlKm8uXB11VjfM",
-        base_url="https://yunwu.ai/v1",
+        api_key="your key",
+        base_url="url",
         timeout=120,
     )
 
