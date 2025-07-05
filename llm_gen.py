@@ -32,14 +32,6 @@ Do not provide an analysis of each code; the result should only be a description
                 {"role": "user", "content": prompt_text}]
 
     completion = client.chat.completions.create(
-        # # model="qwen-plus-0112",
-        # # model="qwen-plus-0919",
-        # # model='qwen-plus-1220',
-        # # model='qwen-plus-0806',
-        # # model='qwen-plus-1127',
-        # # model='qwen-plus-1125',
-        # # model='qwen-plus-2025-04-28',
-        # model='qwen-plus-2025-01-25',
         # model='gpt-4.1-mini',
         # model='deepseek-v3',
         model='qwen-plus',
@@ -48,79 +40,6 @@ Do not provide an analysis of each code; the result should only be a description
     res = completion.choices[0].message.content
     return res
 
-def generate_rank(data):
-    client = OpenAI(
-        api_key="sk-37d36aa17bc84926948fc73b5881c1e5",
-        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
-        timeout=120,
-    )
-
-    prompt = """
-This is a task of matching queries with code.
-I will provide you with a query and multiple code entries, where each code entry contains both a code and a url.
-You should rank the URLs based on their match degree with the query. Do not give me any other responses, just the ranking of the URLs.
-Separate the rankings with ','.
-{query}, {code}
-"""
-
-    code = data['code_input']
-    query = data['nl_input']
-    prompt_text = prompt.format(query=query, code=code)
-    messages = [{"role": "system", "content": "You are an expert in code search tasks, skilled at evaluating the relationship between a given text and multiple pieces of code. Given a query text, you can identify the most suitable code from the provided options and rank and score them according to their match degree with the text."},
-                {"role": "user", "content": prompt_text}]
-
-    completion = client.chat.completions.create(
-        # model="qwen-plus-0112",
-        # model="qwen-plus-0919",
-        # model='qwen-plus-1220',
-        # model='qwen-plus-0806',
-        # model='qwen-plus-1127',
-        model='qwen-plus-1125',
-        messages=messages
-    )
-    res = completion.choices[0].message.content
-    # print(res)
-    rank = []
-    for x in res.split(','):
-        try:
-            rank.append(int(x.strip()))
-        except ValueError:
-            x = ''.join(filter(str.isdigit, x))
-            try:
-                rank.append(int(x.strip()))
-            except ValueError:
-                rank.append(x.strip())
-                print(prompt_text)
-                print('--------------------------')
-                print(res)
-    # print(rank)
-    return rank
-
-def generate_rank_t(data):
-    client = OpenAI(
-        api_key="sk-37d36aa17bc84926948fc73b5881c1e5",
-        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
-    )
-
-    prompt = """
-After thinking step by step.This is a task of matching queries with code.
-I will provide you with a query and multiple code entries, where each code entry contains both a code and a url.
-You should rank the URLs based on their match degree with the query. Do not give me any other responses, just the ranking of the URLs.
-Separate the rankings with ','.
-{query}, {code}
-"""
-
-    code = data['code_input']
-    query = data['nl_input']
-    prompt_text = prompt.format(query=query, code=code)
-    messages = [{"role": "system", "content": "You are an expert in code search tasks, skilled at evaluating the relationship between a given text and multiple pieces of code. Given a query text, you can identify the most suitable code from the provided options and rank and score them according to their match degree with the text."},
-                {"role": "user", "content": prompt_text}]
-
-    completion = client.chat.completions.create(
-        model="qwen-plus-0919",
-        messages=messages
-    )
-    print(completion.model_dump_json())
 
 
 if __name__ == '__main__':
