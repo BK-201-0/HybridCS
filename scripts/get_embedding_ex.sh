@@ -12,9 +12,8 @@ dir="./data/cross-domain/$lang"
 
 gencode_path="$dir/${lang}_test_gen_code_python.jsonl"
 recode_path="$dir/${lang}_test_code_python.jsonl"
-#gendes_path="$dir/${lang}_test_gen_des.jsonl"
-gendes_path="$dir/${lang}_test_gen_des_1.jsonl"
-exquery_path="$dir/${lang}_test_exquery_1_3.jsonl" # 1 qwen 2 gpt 3 deepseek
+gendes_path="$dir/${lang}_test_gen_des.jsonl"
+exquery_path="$dir/${lang}_test_exquery_1.jsonl" # 1 qwen 2 gpt 3 deepseek
 
 
 
