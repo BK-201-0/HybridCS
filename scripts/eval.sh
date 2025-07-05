@@ -74,9 +74,6 @@ for lang in "${langs[@]}"; do
         --gendes1_cocosoda_path   "${paths[0]}$lang-gendes-1.npy" \
         --gendes1_bge_path   "${paths[1]}$lang-gendes-1.npy" \
         --gendes1_unixcoder_path   "${paths[2]}$lang-gendes-1.npy" \
-        --comment1_cocosoda_path   "${paths[0]}$lang-comment-1.npy" \
-        --comment1_bge_path   "${paths[1]}$lang-comment-1.npy" \
-        --comment1_unixcoder_path   "${paths[2]}$lang-comment-1.npy" \
         --exquery_cocosoda_path   "${paths[0]}$lang-exquery-qwen-3.npy" \
         --exquery_bge_path   "${paths[1]}$lang-exquery-qwen-3.npy" \
         --exquery_unixcoder_path   "${paths[2]}$lang-exquery-qwen-3.npy" \
