@@ -395,8 +395,8 @@ if __name__ == '__main__':
         global_query_2 = np.concatenate((query_bge_embedding, query_bge_embedding, query_bge_embedding), axis=-1)
         global_target_2 = np.concatenate((comment_bge_embedding, comment_bge_embedding, comment_bge_embedding), axis=-1)
 
-        global_query_4 = np.concatenate((gendes_cocosoda_embedding, gendes_bge_embedding, gendes_unixcoder_embedding), axis=-1)
-        global_target_4 = np.concatenate((code_cocosoda_embedding, code_bge_embedding, code_unixcoder_embedding), axis=-1)
+        global_query_4 = np.concatenate((gendes_cocosoda_embedding, gendes_cocosoda_embedding, gendes_cocosoda_embedding), axis=-1)
+        global_target_4 = np.concatenate((code_cocosoda_embedding, code_cocosoda_embedding, code_cocosoda_embedding), axis=-1)
 
         global_query_5 = np.concatenate((exquery_cocosoda_embedding, exquery_bge_embedding, exquery_unixcoder_embedding), axis=-1)
         global_target_5 = np.concatenate((code_cocosoda_embedding, code_bge_embedding, code_unixcoder_embedding), axis=-1)
